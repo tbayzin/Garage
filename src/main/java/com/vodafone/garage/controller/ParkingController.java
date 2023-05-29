@@ -42,7 +42,9 @@ public class ParkingController {
     public ResponseEntity<String> leave(@PathVariable String plateNumber) {
         String response = parkingLot.leave(plateNumber);
         LocalDateTime now = LocalDateTime.now();
-      //  Ticket ticket = new Ticket(plateNumber, parkingLot.getSlots().contains(plateNumber), now);
+        Ticket ticket = new Ticket(plateNumber, now);
+        System.out.println("Ticket information of the leaving car: " +
+                " " + plateNumber + " left time: " + now);
         HttpStatus status = response.equals("Vehicle not found") ? HttpStatus.NOT_FOUND : HttpStatus.OK;
         return new ResponseEntity<>(response, status);
     }

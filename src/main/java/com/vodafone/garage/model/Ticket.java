@@ -20,4 +20,7 @@ public class Ticket {
         this.type = type;
         this.creationTime = creationTime;
     }
+
+    public Ticket(String plateNumber, LocalDateTime now) {
+    }
 }
