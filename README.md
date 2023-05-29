@@ -7,7 +7,7 @@ Java 17  <br>
 Maven   <br>
 Junit   <br>
 Swagger  <br>
-Lombok  <br>
+Lombok  <br>  <br>
 
 
 Below stands demonstration of couple requests.
