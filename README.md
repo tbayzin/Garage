@@ -1,6 +1,6 @@
 No Database or additional settings needed. 
 Endpoints can be tested either Postman or Swagger UI.
-Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6GW5yNkuHI4exyWRt4hs7KCWcpA/view?usp=sharing">here</a> and import to postman as a collection.
+Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6GW5yNkuHI4exyWRt4hs7KCWcpA/view?usp=sharing">here</a> and import into Postman as a collection.
 
 <b> GET</b> - http://localhost:8082/api/v1/status
 
