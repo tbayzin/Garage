@@ -10,7 +10,7 @@ Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6G
 {
   "color": "red",
   "type": "jeep",
-  "plateNumber": "szzs"
+  "plateNumber": "34TK200"
 }
 ```
  <br>
