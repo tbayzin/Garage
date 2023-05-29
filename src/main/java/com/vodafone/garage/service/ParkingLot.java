@@ -1,13 +1,18 @@
-package com.vodafone.garage.model;
+package com.vodafone.garage.service;
 
 
 
+import com.vodafone.garage.model.Slot;
+import com.vodafone.garage.model.Vehicle;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
@@ -28,7 +33,13 @@ public class ParkingLot {
     }
 
     public String park(Vehicle vehicle) {
+        if (vehicles.equals(vehicle.getPlateNumber())) {
+            return "This vehicle is already in the garage";
+        }
         int requiredSlots = getRequiredSlots(vehicle.getType());
+        if (vehicle.getPlateNumber().isEmpty()) {
+            return "Plate number section is empty";
+        }
         if (requiredSlots == -1) {
             return "Unknown vehicle type";
         }
@@ -43,10 +54,10 @@ public class ParkingLot {
         return "Allocated " + requiredSlots + " slots.";
     }
 
-    public String leave(String registrationNumber) {
+    public String leave(String plateNumber) {
         Vehicle vehicle = null;
         for (Vehicle v : vehicles) {
-            if (v.getPlateNumber().equals(registrationNumber)) {
+            if (v.getPlateNumber().equals(plateNumber)) {
                 vehicle = v;
                 break;
             }
@@ -60,17 +71,32 @@ public class ParkingLot {
             }
         }
         vehicles.remove(vehicle);
-        return "Vehicle with registration number " + registrationNumber + " has left the parking lot.";
+        return "Vehicle with plate number " + plateNumber + " has left the parking lot.";
     }
 
     public String getStatus() {
         StringBuilder status = new StringBuilder();
+
+        Map<Vehicle, List<Integer>> vehicleSlotMap = new HashMap<>();
         for (Slot slot : slots) {
             if (!slot.isAvailable()) {
-                status.append(slot.getVehicle().getPlateNumber()).append(" ")
-                        .append(slot.getVehicle().getColor()).append(" [").append(slot.getSlotNumber()).append("]\n");
+                Vehicle vehicle = slot.getVehicle();
+                int slotNumber = slot.getSlotNumber();
+
+                List<Integer> slotNumbers = vehicleSlotMap.getOrDefault(vehicle, new ArrayList<>());
+                slotNumbers.add(slotNumber);
+                vehicleSlotMap.put(vehicle, slotNumbers);
             }
         }
+
+        for (Map.Entry<Vehicle, List<Integer>> entry : vehicleSlotMap.entrySet()) {
+            Vehicle vehicle = entry.getKey();
+            List<Integer> slotNumbers = entry.getValue();
+
+            status.append(vehicle.getPlateNumber()).append(" ")
+                    .append(vehicle.getColor()).append(" ").append(String.join(",", slotNumbers.toString())).append("\n");
+        }
+
         return status.toString();
     }
 
@@ -90,15 +116,13 @@ public class ParkingLot {
     private int[] findAvailableSlots(int requiredSlots) {
         int[] availableSlots = new int[requiredSlots];
         int index = 0;
-        for (int i = 0; i < slots.length - 1 && index < requiredSlots; i++) { // Son slotu kontrol etmiyoruz
+        for (int i = 0; i < slots.length - 1 && index < requiredSlots; i++) {
             if (slots[i + 1].isAvailable()) {
-                // Arada bir slot boşluk bırakılıyor
-                if (index == 0 || slots[i].isAvailable() && slots[i+1].isAvailable()) { // Hem mevcut hem de bir sonraki slotun boş olması gerekiyor
+                if (index == 0 || slots[i].isAvailable() && slots[i+1].isAvailable()) {
                     availableSlots[index] = slots[i + 1].getSlotNumber();
                     index++;
                 }
             } else {
-                // Eğer aradaki slot dolu ise, yeni bir slot dizisi başlatılıyor
                 index = 0;
             }
         }
