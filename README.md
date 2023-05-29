@@ -4,12 +4,16 @@ Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6G
 
 <b> GET</b> - http://localhost:8082/api/v1/status
 
-<b> POST</b> - http://localhost:8082/api/v1/park
+<b> POST</b> - http://localhost:8082/api/v1/park  <br>
+
+```json
 {
   "color": "red",
   "type": "jeep",
   "plateNumber": "szzs"
 }
+```
+ <br>
 
 <b> DELETE</b> - http://localhost:8082/api/v1/leave/06ABC340
 
