@@ -14,8 +14,6 @@ public class Vehicle {
         private String type;
         private String plateNumber;
 
-
-
     }
 
 

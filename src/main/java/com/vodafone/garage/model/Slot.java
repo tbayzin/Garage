@@ -17,13 +17,6 @@ public class Slot {
         this.vehicle = null;
     }
 
-    public int getSlotNumber() {
-        return slotNumber;
-    }
-
-    public void setSlotNumber(int slotNumber) {
-        this.slotNumber = slotNumber;
-    }
 
     public boolean isAvailable() {
         return vehicle == null;
