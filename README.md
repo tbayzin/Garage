@@ -19,7 +19,7 @@ Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6G
 
 <b>Swagger Url:</b>  http://localhost:8082/swagger-ui/index.html
 
-![image](https://github.com/tbayzin/Garage/assets/6651143/8786fd64-d429-41dc-a8b1-1e55e86f898e)
+![image](https://raw.githubusercontent.com/tbayzin/Garage/master/sw.png)
 
 
 Java 17  <br>
