@@ -31,9 +31,9 @@ Lombok  <br>  <br>
 
 Below stands demonstration of couple requests.
 
-![image](https://github.com/tbayzin/Garage/assets/6651143/7b8b48ea-52bc-4526-9804-32f0306095c5)    <br>
+![image](https://raw.githubusercontent.com/tbayzin/Garage/master/1.png)    <br>
 
-![image](https://github.com/tbayzin/Garage/assets/6651143/0c15b8aa-24ee-4e31-8abc-bc9a6bacc82f)  <br>
+![image](https://raw.githubusercontent.com/tbayzin/Garage/master/2th.png)  <br>
 
 
 
