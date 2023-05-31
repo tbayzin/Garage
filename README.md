@@ -1,4 +1,4 @@
-No Database or additional settings needed. 
+No Database or additional configuration needed. 
 Endpoints can be tested either Postman or Swagger UI.
 Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6GW5yNkuHI4exyWRt4hs7KCWcpA/view?usp=sharing">here</a> and import into Postman as a collection.
 
