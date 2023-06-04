@@ -24,7 +24,6 @@ Postman Collection can be find <a href="https://drive.google.com/file/d/1iQSnp6G
 
 Java 17  <br>
 Maven   <br>
-Junit   <br>
 Swagger  <br>
 Lombok  <br>  <br>
 
